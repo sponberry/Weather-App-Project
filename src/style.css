@@ -1,0 +1,110 @@
+body {
+  background-image: url("stars.jpg");
+  background-color: steelblue;
+  background-size: cover;
+  padding: 70px 50px;
+  font-family: "Fira Sans", sans-serif;
+}
+
+h3,
+h3 {
+  font-weight: 300px;
+  margin: 5px 0;
+}
+
+h2 {
+  font-size: 72px;
+}
+
+h3.city {
+  font-size: 40px;
+  text-align: right;
+  line-height: 1em;
+  padding: 10px 0 0 0;
+}
+
+p {
+  text-align: left;
+}
+
+.date {
+  display: block;
+  font-size: 14px;
+  font-weight: 100;
+  text-align: right;
+  line-height: 0.7em;
+}
+
+.currently {
+  display: block;
+  text-align: right;
+  padding: 5px 0 0 0;
+}
+
+p.days {
+  color: grey;
+}
+
+p.temp {
+  color: rgb(66, 66, 66);
+  margin: 5px 0;
+}
+
+footer {
+  color: rgba(255, 255, 255, 0.6);
+  font-family: monospace;
+  font-size: 10px;
+  text-align: center;
+  margin: 10px;
+}
+
+.bg-light {
+  opacity: 80%;
+}
+
+.card {
+  display: block;
+  margin: 0 auto;
+  background-color: rgba(255, 255, 255, 0.8);
+  max-width: 650px;
+  min-width: 500px;
+}
+
+img.card-img {
+  display: block;
+  opacity: 60%;
+  height: 400px;
+  padding: 75px 0px 75px 100px;
+}
+
+.searchFunc {
+  margin: 10px 20px 10px 10px;
+  max-width: 600px;
+}
+
+.forecast {
+  margin: 10px;
+}
+
+.fas {
+  font-size: 30px;
+  text-align: left;
+}
+
+.farenheit {
+  color: grey;
+  text-decoration: none;
+}
+
+.farenheit:hover {
+  color: black;
+}
+
+.celsius {
+  color: black;
+  text-decoration: none;
+}
+
+.celsius:hover {
+  color: black;
+}

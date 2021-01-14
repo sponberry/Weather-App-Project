@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@100;300&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="src/style.css" />
+    <script
+      src="https://kit.fontawesome.com/c0e390e951.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Weather App</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="card bg-light">
+        <img
+          src="images/sky.svg"
+          class="card-img"
+          alt="an image showing a partly cloudy day"
+        />
+        <div class="card-img-overlay">
+          <form id="weather-form">
+            <div class="row searchFunc">
+              <div class="col-md-7">
+                <input
+                  type="text"
+                  name="citySearch"
+                  placeholder="Enter city"
+                  class="form-control"
+                  autofocus="yes"
+                  autocomplete="no"
+                  id="search-box"
+                />
+              </div>
+              <div class="col-md-2">
+                <input
+                  type="submit"
+                  name="search"
+                  value="Search"
+                  class="btn btn-outline-success"
+                  id="search-button"
+                />
+              </div>
+              <div class="col-md-3">
+                <input
+                  type="button"
+                  name="currentLoc"
+                  id="current-loc"
+                  value="Current Location"
+                  class="btn btn-outline-primary"
+                />
+              </div>
+            </div>
+          </form>
+          <div class="row">
+            <div class="col-md-7">
+              <h3 class="city">Lisbon</h3>
+              <p>
+                <span class="date"
+                  >Monday 21:00
+                  <br />
+                </span>
+                <span class="currently">currently:</span>
+              </p>
+            </div>
+            <div class="col-md-2"></div>
+            <div class="col-md-3">
+              <!--img src="images/sky.svg" class="weatherToday" /-->
+              <h2 id="current-temp">19°<span id="unit-type">c</span></h2>
+              <div class="units">
+                <a href="#" class="celsius" id="celsius-link">°C </a>
+                <span class="divider"> | </span>
+                <a href="#" class="farenheit" id="farenheit-link"> °F </a>
+              </div>
+              <h4 id="weather-summary">clear skies</h4>
+              <span class="humidity" id="weather-humidity"></span>
+              <span class="windspeed" id="wind-speed"></span>
+            </div>
+          </div>
+          <div class="row forecast">
+            <div class="col-md-2">
+              <p class="days">Mon</p>
+              <i class="fas fa-cloud-sun"></i>
+              <p class="temp">20°</p>
+            </div>
+            <div class="col-md-2">
+              <p class="days">Tue</p>
+              <i class="fas fa-sun"></i>
+              <p class="temp">29°</p>
+            </div>
+            <div class="col-md-2">
+              <p class="days">Wed</p>
+              <i class="fas fa-cloud"></i>
+              <p class="temp">19°</p>
+            </div>
+            <div class="col-md-2">
+              <p class="days">Thu</p>
+              <i class="fas fa-wind"></i>
+              <p class="temp">15°</p>
+            </div>
+            <div class="col-md-2">
+              <p class="days">Fri</p>
+              <i class="fas fa-cloud-showers-heavy"></i>
+              <p class="temp">16°</p>
+            </div>
+            <div class="col-md-2"></div>
+          </div>
+        </div>
+      </div>
+
+      <footer>Photo by Cliford Mervil from Pexels</footer>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+      crossorigin="anonymous"
+    ></script>
+    <script src="src/script.js"></script>
+  </body>
+</html>
