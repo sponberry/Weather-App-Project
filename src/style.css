@@ -58,6 +58,17 @@ footer {
   margin: 10px;
 }
 
+.open-source {
+  font-size: 14px;
+  color: white;
+}
+.git {
+  color: white;
+}
+.git:hover {
+  color: grey;
+}
+
 .bg-light {
   opacity: 80%;
 }
