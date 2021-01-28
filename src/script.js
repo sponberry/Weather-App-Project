@@ -1,3 +1,15 @@
+function checkWeatherCode(code) {
+  if (code === 800) {
+    return "sun";
+  } else if (code < 300) {
+    return "bolt";
+  } else if (code < 800) {
+    return "cloud-showers-heavy";
+  } else {
+    return "cloud";
+  }
+}
+
 function showData(response) {
   let city = response.data.name;
   let displayedCity = document.querySelector(".city");
@@ -5,21 +17,57 @@ function showData(response) {
 
   let humidity = response.data.main.humidity;
   let displayedHumidity = document.querySelector("#weather-humidity");
-  displayedHumidity.innerHTML = `${humidity}%`;
+  displayedHumidity.innerHTML = `Humidity: ${humidity}%`;
 
   let wind = response.data.wind.speed;
   let displayedWind = document.querySelector("#wind-speed");
-  displayedWind.innerHTML = `${wind} mph`;
+  displayedWind.innerHTML = `Wind: ${wind} mph`;
 
   let summary = response.data.weather[0].description;
   let displayedDescription = document.querySelector("#weather-summary");
   displayedDescription.innerHTML = summary;
+
+  // let weatherCode = response.data.weather[0].id;
+  // checkWeatherCode(weatherCode);
 }
 
 function showTemp(response) {
   let temp = Math.round(response.data.main.temp);
   let displayedTemp = document.querySelector("#current-temp");
   displayedTemp.innerHTML = `${temp}°`;
+}
+
+function showNextFiveDays(response) {
+  //tomorrow
+  let tomorrowTemp = Math.round(response.data.list[1].main.temp);
+  let tomorrowIcon = checkWeatherCode(response.data.list[1].weather[0].id);
+  let dayOneDisplay = document.querySelector("#day-one-temp");
+  dayOneDisplay.innerHTML = `<i class="fas fa-${tomorrowIcon}"></i><br /> ${tomorrowTemp}°`;
+  //day after tomorrow
+  let dayTwoTemp = Math.round(response.data.list[2].main.temp);
+  let dayTwoIcon = checkWeatherCode(response.data.list[2].weather[0].id);
+  let dayTwoDisplay = document.querySelector("#day-two-temp");
+  dayTwoDisplay.innerHTML = `<i class="fas fa-${dayTwoIcon}"></i><br /> ${dayTwoTemp}°`;
+  //day three
+  let dayThreeTemp = Math.round(response.data.list[3].main.temp);
+  let dayThreeIcon = checkWeatherCode(response.data.list[3].weather[0].id);
+  let dayThreeDisplay = document.querySelector("#day-three-temp");
+  dayThreeDisplay.innerHTML = `<i class="fas fa-${dayThreeIcon}"></i><br /> ${dayThreeTemp}°`;
+  //day four
+  let dayFourTemp = Math.round(response.data.list[4].main.temp);
+  let dayFourIcon = checkWeatherCode(response.data.list[4].weather[0].id);
+  let dayFourDisplay = document.querySelector("#day-four-temp");
+  dayFourDisplay.innerHTML = `<i class="fas fa-${dayFourIcon}"></i><br /> ${dayFourTemp}°`;
+  //day five
+  let dayFiveTemp = Math.round(response.data.list[5].main.temp);
+  let dayFiveIcon = checkWeatherCode(response.data.list[5].weather[0].id);
+  let dayFiveDisplay = document.querySelector("#day-five-temp");
+  dayFiveDisplay.innerHTML = `<i class="fas fa-${dayFiveIcon}"></i><br /> ${dayFiveTemp}°`;
+}
+
+function updateWeek(parameters) {
+  let urlRoot = "https://api.openweathermap.org/data/2.5/forecast?";
+  axios.get(urlRoot + parameters).then(showNextFiveDays);
 }
 
 function searchForCity(event) {
@@ -31,6 +79,7 @@ function searchForCity(event) {
   let apiUrl = `q=${currentCity}&units=metric&appid=${apiKey}`;
   axios.get(urlRoot + apiUrl).then(showData);
   axios.get(urlRoot + apiUrl).then(showTemp);
+  updateWeek(apiUrl);
 }
 
 function switchUnit(event) {
@@ -55,12 +104,12 @@ function getPosition(position) {
   let longitude = position.coords.longitude;
   let units = "metric";
   let apiKey = "d022a7cace86a431e5ba6e5fd2caf5df";
-  console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
 
   let urlRoot = `https://api.openweathermap.org/data/2.5/weather?`;
   let apiUrl = `lat=${latitude}&lon=${longitude}&units=${units}&appid=${apiKey}`;
-  console.log(urlRoot + apiUrl);
   axios.get(urlRoot + apiUrl).then(showData);
+  axios.get(urlRoot + apiUrl).then(showTemp);
+  updateWeek(apiUrl);
 }
 
 function makeRequest(event) {
@@ -76,10 +125,23 @@ form.addEventListener("submit", searchForCity);
 let locationButton = document.querySelector("#current-loc");
 locationButton.addEventListener("click", makeRequest);
 
-//display current day and time
+//define all day and time HTML elements
 let dayTime = document.querySelector(".date");
+let tomorrow = document.querySelector("#day-one");
+let dayTwo = document.querySelector("#day-two");
+let dayThree = document.querySelector("#day-three");
+let dayFour = document.querySelector("#day-four");
+let dayFive = document.querySelector("#day-five");
+//display current day and time
 let now = new Date();
 let days = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
   "Sunday",
   "Monday",
   "Tuesday",
@@ -101,6 +163,11 @@ if (hours < 10) {
 
 let time = hours + ":" + minutes;
 dayTime.innerHTML = `${days[today]} ${time}`;
+tomorrow.innerHTML = `${days[today + 1]}`;
+dayTwo.innerHTML = `${days[today + 2]}`;
+dayThree.innerHTML = `${days[today + 3]}`;
+dayFour.innerHTML = `${days[today + 4]}`;
+dayFive.innerHTML = `${days[today + 5]}`;
 
 //switch value from celsisus to farenheit and back
 let celsiusTemp = "19°";

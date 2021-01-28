@@ -7,9 +7,9 @@ body {
 }
 
 h3,
-h3 {
-  font-weight: 300px;
-  margin: 5px 0;
+p {
+  z-index: 2;
+  position: relative;
 }
 
 h2 {
@@ -17,6 +17,8 @@ h2 {
 }
 
 h3.city {
+  font-weight: 300px;
+  margin: 5px 0;
   font-size: 40px;
   text-align: right;
   line-height: 1em;
@@ -42,12 +44,14 @@ p {
 }
 
 p.days {
+  padding: 30px 0 0;
   color: grey;
 }
 
 p.temp {
   color: rgb(66, 66, 66);
-  margin: 5px 0;
+  display: block;
+  margin: 0 auto;
 }
 
 footer {
@@ -82,13 +86,6 @@ footer {
   min-height: 450px;
 }
 
-img.card-img {
-  display: block;
-  opacity: 60%;
-  height: 400px;
-  padding: 75px 0px 75px 100px;
-}
-
 .searchFunc {
   margin: 10px 20px 10px 10px;
   max-width: 600px;
@@ -119,4 +116,12 @@ img.card-img {
 
 .celsius:hover {
   color: black;
+}
+
+.weatherImg {
+  max-width: 300px;
+  display: block;
+  margin: 0 auto;
+  position: absolute;
+  z-index: 1;
 }
