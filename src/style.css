@@ -14,6 +14,7 @@ p {
 
 h2 {
   font-size: 72px;
+  text-align: left;
 }
 
 h3.city {
@@ -43,15 +44,26 @@ p {
   padding: 5px 0 0 0;
 }
 
-p.days {
-  padding: 30px 0 0;
+ul.days {
+  margin: 0;
+  padding: 0;
+}
+
+li.days {
+  padding: 0 30px 0 0;
+  line-height: 2.5em;
+  font-size: 14px;
+  text-align: center;
   color: grey;
+  list-style: none;
+  display: inline-block;
 }
 
 p.temp {
   color: rgb(66, 66, 66);
-  display: block;
   margin: 0 auto;
+  line-height: 0.5em;
+  display: inline;
 }
 
 footer {
@@ -82,7 +94,7 @@ footer {
   margin: 0 auto;
   background-color: rgba(255, 255, 255, 0.8);
   max-width: 650px;
-  min-width: 500px;
+  min-width: 400px;
   min-height: 450px;
 }
 

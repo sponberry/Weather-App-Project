@@ -47,13 +47,7 @@ function showTemp(response) {
   displayedTemp.innerHTML = `${temp}°`;
 }
 
-function loopDays(response) {
-  let fiveDayForecast = document.querySelectorAll("li.days");
-
-  fiveDayForecast.forEach(showNextFiveDays, response);
-}
-
-function showNextFiveDays(dayElement, response) {
+function showNextFiveDays(response) {
   //tomorrow
   let tomorrowTemp = Math.round(response.data.list[1].main.temp);
   let tomorrowIcon = checkWeatherCode(response.data.list[1].weather[0].id);

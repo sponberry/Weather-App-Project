@@ -61,9 +61,9 @@
           </form>
           <div class="row">
             <div class="col-md-7">
-              <span id="weather-img">
+              <!-- <span id="weather-img">
                 <img src="images/clear.png" class="weatherImg" />
-              </span>
+              </span> -->
               <h3 class="city">Lisbon</h3>
               <p>
                 <span class="date"
@@ -73,8 +73,8 @@
                 <span class="currently">currently:</span>
               </p>
             </div>
-            <div class="col-md-2"></div>
-            <div class="col-md-3">
+            <div class="col-md-1"></div>
+            <div class="col-md-4">
               <!--img src="images/sky.svg" class="weatherToday" /-->
               <h2 id="current-temp">19°<span id="unit-type"></span></h2>
               <div class="units">
@@ -88,43 +88,72 @@
             </div>
           </div>
           <div class="row forecast">
-            <div class="col-md-2">
-              <p class="days" id="day-one">Mon</p>
-              <span id="day-one-temp">
-                <i class="fas fa-cloud-sun"></i>
-                <p class="temp">20°</p>
-              </span>
+            <div class="col-md-10">
+              <ul class="days">
+                <li class="days">
+                  <div class="row">
+                    <span id="day-one">Mon</span>
+                  </div>
+                  <div class="row">
+                    <span id="day-one-temp">
+                      <i class="fas fa-cloud-sun"></i>
+                      <br />
+                      <p class="temp">20°</p>
+                    </span>
+                  </div>
+                </li>
+                <li class="days">
+                  <div class="row">
+                    <span id="day-two">Tue</span>
+                  </div>
+                  <div class="row">
+                    <span id="day-two-temp">
+                      <i class="fas fa-sun"></i>
+                      <br />
+                      <p class="temp">29°</p>
+                    </span>
+                  </div>
+                </li>
+                <li class="days">
+                  <div class="row">
+                    <span id="day-three">Wed</span>
+                  </div>
+                  <div class="row">
+                    <span id="day-three-temp">
+                      <i class="fas fa-cloud"></i>
+                      <br />
+                      <p class="temp">19°</p>
+                    </span>
+                  </div>
+                </li>
+                <li class="days">
+                  <div class="row">
+                    <span id="day-four">Thu</span>
+                  </div>
+                  <div class="row">
+                    <span id="day-four-temp">
+                      <i class="fas fa-wind"></i>
+                      <br />
+                      <p class="temp">15°</p>
+                    </span>
+                  </div>
+                </li>
+                <li class="days">
+                  <div class="row">
+                    <span id="day-five">Fri</span>
+                  </div>
+                  <div class="row">
+                    <span id="day-five-temp">
+                      <i class="fas fa-cloud-showers-heavy"></i>
+                      <br />
+                      <p class="temp">16°</p>
+                    </span>
+                  </div>
+                </li>
+              </ul>
             </div>
-            <div class="col-md-2">
-              <p class="days" id="day-two">Tue</p>
-              <span id="day-two-temp">
-                <i class="fas fa-sun"></i>
-                <p class="temp">29°</p>
-              </span>
-            </div>
-            <div class="col-md-2">
-              <p class="days" id="day-three">Wed</p>
-              <span id="day-three-temp">
-                <i class="fas fa-cloud"></i>
-                <p class="temp">19°</p>
-              </span>
-            </div>
-            <div class="col-md-2">
-              <p class="days" id="day-four">Thu</p>
-              <span id="day-four-temp">
-                <i class="fas fa-wind"></i>
-                <p class="temp">15°</p>
-              </span>
-            </div>
-            <div class="col-md-2">
-              <p class="days" id="day-five">Fri</p>
-              <span id="day-five-temp">
-                <i class="fas fa-cloud-showers-heavy"></i>
-                <p class="temp">16°</p>
-              </span>
-            </div>
-            <div class="col-md-2"></div>
           </div>
+          <div class="col-md-2"></div>
         </div>
       </div>
 
