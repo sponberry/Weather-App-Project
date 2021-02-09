@@ -59,12 +59,6 @@ function showTemp(response) {
 }
 
 function showNextFiveDays(response) {
-  let fiveDayForecast = document.querySelectorAll("li.days");
-  let allDays = fiveDayForecast.dayTemps;
-  allDays.forEach(function (day) {
-    console.log(day.innerHTML);
-  });
-
   //tomorrow
   let tomorrowTemp = Math.round(response.data.list[1].main.temp);
   let tomorrowIcon = checkWeatherCode(response.data.list[1].weather[0].id);
@@ -201,8 +195,9 @@ if (minutes < 10) {
 if (hours < 10) {
   hours = `0${hours}`;
 }
-
 let time = hours + ":" + minutes;
+
+//displays next five days of the week based on today
 dayTime.innerHTML = `${days[today]} ${time}`;
 tomorrow.innerHTML = `${days[today + 1]}`;
 dayTwo.innerHTML = `${days[today + 2]}`;
