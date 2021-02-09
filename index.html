@@ -61,17 +61,26 @@
           </form>
           <div class="row">
             <div class="col-md-7">
-              <!-- <span id="weather-img">
-                <img src="images/clear.png" class="weatherImg" />
-              </span> -->
-              <h3 class="city">Lisbon</h3>
-              <p>
-                <span class="date"
-                  >Monday 21:00
-                  <br />
+              <div class="row">
+                <h3 class="city">Lisbon</h3>
+                <p>
+                  <span class="date"
+                    >Monday 21:00
+                    <br />
+                  </span>
+                  <span class="currently">currently:</span>
+                </p>
+              </div>
+              <div class="row">
+                <img
+                  src="http://openweathermap.org/img/wn/02n@2x.png"
+                  class="weatherImg"
+                  id="weather-img"
+                />
+                <span class="stargazing" id="star-gazing">
+                  Cloud cover tonight
                 </span>
-                <span class="currently">currently:</span>
-              </p>
+              </div>
             </div>
             <div class="col-md-1"></div>
             <div class="col-md-4">
@@ -94,7 +103,7 @@
                   <div class="row">
                     <span id="day-one">Mon</span>
                   </div>
-                  <div class="row">
+                  <div class="row dayTemps">
                     <span id="day-one-temp">
                       <i class="fas fa-cloud-sun"></i>
                       <br />
@@ -106,7 +115,7 @@
                   <div class="row">
                     <span id="day-two">Tue</span>
                   </div>
-                  <div class="row">
+                  <div class="row dayTemps">
                     <span id="day-two-temp">
                       <i class="fas fa-sun"></i>
                       <br />
@@ -118,7 +127,7 @@
                   <div class="row">
                     <span id="day-three">Wed</span>
                   </div>
-                  <div class="row">
+                  <div class="row dayTemps">
                     <span id="day-three-temp">
                       <i class="fas fa-cloud"></i>
                       <br />
@@ -130,7 +139,7 @@
                   <div class="row">
                     <span id="day-four">Thu</span>
                   </div>
-                  <div class="row">
+                  <div class="row dayTemps">
                     <span id="day-four-temp">
                       <i class="fas fa-wind"></i>
                       <br />
@@ -142,7 +151,7 @@
                   <div class="row">
                     <span id="day-five">Fri</span>
                   </div>
-                  <div class="row">
+                  <div class="row dayTemps">
                     <span id="day-five-temp">
                       <i class="fas fa-cloud-showers-heavy"></i>
                       <br />

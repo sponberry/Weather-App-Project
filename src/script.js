@@ -37,8 +37,19 @@ function showData(response) {
   let displayedDescription = document.querySelector("#weather-summary");
   displayedDescription.innerHTML = summary;
 
-  // let weatherCode = response.data.weather[0].id;
-  // checkWeatherCode(weatherCode);
+  let icon = response.data.weather[0].icon;
+  let weatherImage = document.querySelector("#weather-img");
+  weatherImage.src = `http://openweathermap.org/img/wn/${icon}@2x.png`;
+
+  let cloudCover = Number(response.data.clouds.all);
+  let stargazeStatus = document.querySelector("#star-gazing");
+  if (cloudCover === 0) {
+    stargazeStatus.innerHTML = "Clear stargazing skies tonight";
+  } else if (cloudCover < 10) {
+    stargazeStatus.innerHTML = "Some sky visbility tonight";
+  } else {
+    stargazeStatus.innerHTML = "Cloud cover tonight";
+  }
 }
 
 function showTemp(response) {
@@ -47,13 +58,13 @@ function showTemp(response) {
   displayedTemp.innerHTML = `${temp}°`;
 }
 
-function loopDays(response) {
-  let fiveDayForecast = document.querySelectorAll("li.days");
-
-  fiveDayForecast.forEach(showNextFiveDays, response);
-}
-
 function showNextFiveDays(response) {
+  let fiveDayForecast = document.querySelectorAll("li.days");
+  let allDays = fiveDayForecast.dayTemps;
+  allDays.forEach(function (day) {
+    console.log(day.innerHTML);
+  });
+
   //tomorrow
   let tomorrowTemp = Math.round(response.data.list[1].main.temp);
   let tomorrowIcon = checkWeatherCode(response.data.list[1].weather[0].id);
@@ -90,6 +101,7 @@ function searchForCity(event) {
   event.preventDefault();
   let searchBox = document.querySelector("#search-box");
   let currentCity = searchBox.value.toLowerCase();
+  searchBox.value = "";
   let apiKey = "d022a7cace86a431e5ba6e5fd2caf5df";
   let urlRoot = `https://api.openweathermap.org/data/2.5/weather?`;
   let apiUrl = `q=${currentCity}&units=metric&appid=${apiKey}`;
